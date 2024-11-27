@@ -1,0 +1,196 @@
+/* Custom styles for Empower Ability Labs */
+
+/* Vrinda's Section */
+main {
+  padding-top: 6rem;
+  padding-left: 2em;
+  padding-right: 2rem;
+  padding-bottom: 2em;
+}
+
+.section-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.section-table td {
+  border: 2px solid #333;
+  padding: 1rem;
+  vertical-align: top;
+}
+
+.section-table h2 {
+  margin-top: 0;
+}
+
+/* Talwinder's Section */
+
+button {
+  margin-bottom: 1em;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.services-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-direction: row-reverse;
+  /* Moves the image to the right */
+}
+
+.emoji {
+  width: 80px;
+  height: 80px;
+}
+
+
+/* Aakanksha's Section */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin-top: 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f7f7f7;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+/* Responsive images */
+img.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+
+/* Make the form responsive */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+}
+
+
+/* Switch styling */
+[role="switch"] {
+  margin: 2px;
+  padding: 4px 4px 8px 8px;
+  border: 0 solid #005a9c;
+  border-radius: 5px;
+  width: 15em;
+  user-select: none;
+}
+
+[role="switch"] .label {
+  display: inline-block;
+  width: 8em;
+}
+
+[role="switch"] .switch {
+  position: relative;
+  display: inline-block;
+  top: 6px;
+  border: 2px solid black;
+  border-radius: 12px;
+  height: 20px;
+  width: 40px;
+}
+
+[role="switch"] .switch span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 8px;
+  height: 12px;
+  width: 12px;
+  background: black;
+}
+
+[role="switch"][aria-checked="true"] .switch span {
+  left: 21px;
+  background: green;
+  border-color: green;
+}
+
+[role="switch"] .on {
+  display: none;
+}
+
+[role="switch"] .off {
+  display: inline;
+}
+
+[role="switch"][aria-checked="true"] .on {
+  display: inline;
+}
+
+[role="switch"][aria-checked="true"] .off {
+  display: none;
+}
+
+[role="switch"]:focus,
+[role="switch"]:hover {
+  padding: 2px 2px 6px 6px;
+  border-width: 2px;
+  outline: none;
+  background-color: #def;
+  cursor: pointer;
+}
+
+[role="switch"]:focus span.switch {
+  background-color: white;
+}
