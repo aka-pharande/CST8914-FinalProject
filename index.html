@@ -45,24 +45,23 @@
       awareness, drive inclusivity, and enhance the user experience. And help you find answers on How do people with
       disabilities use technology and navigate the digital world? What tools do they employ?</p>
 
-    <button id="openModalBtn">Meet the Empower Community</button> <!-- Button text updated -->
-    <!-- Modal Structure -->
-    <div id="lightboxModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="closeModalBtn">&times;</span>
-        <h2>Community Steering Committee</h2>
-        <p>We get aha! moments from product managers who try our services for the first time. We offered many lab days,
-          workshops, and usability testing services to many companies and organizations including:</p>
-        <ul>
-          <li>McGill University</li>
-          <li>Walmart.ca</li>
-          <li>Apple.ca</li>
-          <li>Google.ca</li>
-          <li>Government of Canada</li>
-        </ul>
-      </div>
-    </div>
+      <button id="openModalBtn">Meet the Empower Community</button> <!-- Updated button text -->
 
+      <!-- Modal Structure -->
+      <div id="lightboxModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+        <div class="modal-content" role="document" tabindex="0">
+            <button id="closeModalBtn" class="close" aria-label="Close the modal. Press Enter or Space to close the dialog">×</button>
+            <h2 id="modalTitle">Community Steering Committee</h2>
+            <p id="modalDesc">We get an aha! moment from product managers who try our services for the first time. We offered many lab days, workshops, and usability testing services to many companies and organizations including:</p>
+            <ul>
+                <li>McGill University</li>
+                <li>Walmart.ca</li>
+                <li>Apple.ca</li>
+                <li>Google.ca</li>
+                <li>Government of Canada</li>
+            </ul>
+        </div>
+    </div>
     <table class="section-table">
       <tr>
         <td>
@@ -101,24 +100,24 @@
   <section id="services" class="container">
     <h2>Services</h2>
     <div class="services-container">
-      <img src="./images/services.png" alt="Empathy Program Image" class="emoji">
+      <img src="./images/services.png" alt="" class="emoji"> <!--No need of alt text as it is decorative-->
       <div class="content">
         <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals towards the
           challenges faced by people with disabilities in using technology and interacting with various environments.
         </p>
 
-        <h2>Empathy Lab days and workshops</h2>
+        <h3>Empathy Lab days and workshops</h3>
         <p>The lab days and workshops typically provide hands-on experiences, simulations, and interactions with
           assistive
           technologies, tools, and scenarios that replicate the obstacles individuals with disabilities encounter daily.
         </p>
 
-        <h2>Inspirational speakers</h2>
+        <h3>Inspirational speakers</h3>
         <p>Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming
           event will offer insights that resonate, inspire, educate, and enrich your team’s collective understanding of
           inclusion.</p>
 
-        <h2>Usability testing</h2>
+        <h3>Usability testing</h3>
         <p>Go beyond WCAG! Involve individuals with disabilities in usability testing to gather valuable insights for
           refining product strategy and identifying accessibility concerns at an early stage when solutions are more
           feasible and cost-effective. You have access to a diverse community of people with disabilities, who use
