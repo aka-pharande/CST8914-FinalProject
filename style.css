@@ -3,40 +3,52 @@
 /* Vrinda's Section */
 /* Navbar Styling */
 .navbar {
-  background-color: #6c7277; /* Dark blue for the navbar background */
-  border-bottom: 3px solid #6c7277; /* Adds a bottom border for visual separation */
+  background-color: #6c7277;
+  /* Dark blue for the navbar background */
+  border-bottom: 3px solid #6c7277;
+  /* Adds a bottom border for visual separation */
 }
 
 .navbar .navbar-brand {
-  color: #FFFFFF; /* White text for the brand name/logo */
+  color: #FFFFFF;
+  /* White text for the brand name/logo */
   font-size: 1.5rem;
   font-weight: bold;
-  text-transform: uppercase; /* Makes the brand name more prominent */
+  text-transform: uppercase;
+  /* Makes the brand name more prominent */
 }
 
-.navbar .navbar-brand:hover, 
+.navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus {
-  color: #FFBF47; /* Highlighted yellow-orange on hover/focus */
-  text-decoration: none; /* Removes underline */
+  color: #FFBF47;
+  /* Highlighted yellow-orange on hover/focus */
+  text-decoration: none;
+  /* Removes underline */
 }
 
 .navbar-nav .nav-item .nav-link {
-  color: #FFFFFF; /* White text for navigation links */
+  color: #FFFFFF;
+  /* White text for navigation links */
   font-size: 1rem;
   font-weight: 500;
   padding: 0.5rem 1rem;
-  text-transform: uppercase; /* Makes the links stand out */
-  transition: color 0.3s ease; /* Smooth transition for color changes */
+  text-transform: uppercase;
+  /* Makes the links stand out */
+  transition: color 0.3s ease;
+  /* Smooth transition for color changes */
 }
 
-.navbar-nav .nav-item .nav-link:hover, 
+.navbar-nav .nav-item .nav-link:hover,
 .navbar-nav .nav-item .nav-link:focus {
-  color: #FFBF47; /* Yellow-orange highlight for hover and focus */
-  text-decoration: none; /* Ensures no underline appears */
+  color: #FFBF47;
+  /* Yellow-orange highlight for hover and focus */
+  text-decoration: none;
+  /* Ensures no underline appears */
 }
 
 .navbar-toggler {
-  border-color: #FFFFFF; /* White border for the toggler button */
+  border-color: #FFFFFF;
+  /* White border for the toggler button */
 }
 
 .navbar-toggler-icon {
@@ -45,20 +57,25 @@
 }
 
 .logo {
-  padding: 2px; /* Adjust the value as needed */
+  padding: 2px;
+  /* Adjust the value as needed */
 }
 
 /* Accessibility: Focus styles for the navbar */
 .navbar .nav-link:focus {
-  outline: 2px dashed #FFBF47; /* Yellow-orange dashed outline */
-  outline-offset: 4px; /* Adds space between element and outline */
+  outline: 2px dashed #FFBF47;
+  /* Yellow-orange dashed outline */
+  outline-offset: 4px;
+  /* Adds space between element and outline */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .navbar-nav .nav-item .nav-link {
-    font-size: 0.9rem; /* Slightly smaller font for smaller screens */
-    padding: 0.4rem 0.8rem; /* Adjusted padding for compact layout */
+    font-size: 0.9rem;
+    /* Slightly smaller font for smaller screens */
+    padding: 0.4rem 0.8rem;
+    /* Adjusted padding for compact layout */
   }
 }
 
@@ -69,80 +86,110 @@
 /* Section table styling */
 .section-table {
   width: 100%;
-  border-collapse: collapse; /* Combines borders for clarity */
+  border-collapse: collapse;
+  /* Combines borders for clarity */
   margin-bottom: 2rem;
-  border-spacing: 0; /* Aligns table elements properly */
-  background-color: #FFFFFF; /* White background for maximum readability */
-  color: #1C1C1E; /* Dark gray text ensures good contrast with white background */
+  border-spacing: 0;
+  /* Aligns table elements properly */
+  background-color: #FFFFFF;
+  /* White background for maximum readability */
+  color: #1C1C1E;
+  /* Dark gray text ensures good contrast with white background */
 }
 
 /* Table cell styling */
 .section-table td {
-  border: 2px solid #4A4A4A; /* Strong gray border provides good visibility */
-  padding: 1rem; /* Ensures proper spacing around content */
-  vertical-align: top; /* Aligns content to the top for consistency */
-  text-align: left; /* Aligns text for better readability */
-  font-size: 1rem; /* Ensures legible text size */
-  line-height: 1.5; /* Improves readability */
+  border: 2px solid #4A4A4A;
+  /* Strong gray border provides good visibility */
+  padding: 1rem;
+  /* Ensures proper spacing around content */
+  vertical-align: top;
+  /* Aligns content to the top for consistency */
+  text-align: left;
+  /* Aligns text for better readability */
+  font-size: 1rem;
+  /* Ensures legible text size */
+  line-height: 1.5;
+  /* Improves readability */
 }
 
 /* Section headings */
-.section-table h2, .section-table h3 {
+.section-table h2,
+.section-table h3 {
   margin-top: 0;
-  font-size: 1.5rem; /* Larger font size for headings */
-  line-height: 1.5; /* Improves text legibility */
-  color: #000000; /* Black text ensures maximum contrast */
+  font-size: 1.5rem;
+  /* Larger font size for headings */
+  line-height: 1.5;
+  /* Improves text legibility */
+  color: #000000;
+  /* Black text ensures maximum contrast */
 }
 
 /* Focus styles for keyboard navigation */
-.section-table td:focus, 
-.section-table h2:focus, 
-.section-table h3:focus, 
+.section-table td:focus,
+.section-table h2:focus,
+.section-table h3:focus,
 .section-table a:focus {
-  outline: 3px dashed #FFBF47; /* High-contrast yellow-orange focus indicator */
-  outline-offset: 4px; /* Space between element and outline */
+  outline: 3px dashed #FFBF47;
+  /* High-contrast yellow-orange focus indicator */
+  outline-offset: 4px;
+  /* Space between element and outline */
 }
 
 /* Enhanced text contrast */
 .section-table {
-  background-color: #F8F9FA; /* Light gray background for subtle contrast */
-  color: #212529; /* Dark text on light background for optimal readability */
+  background-color: #F8F9FA;
+  /* Light gray background for subtle contrast */
+  color: #212529;
+  /* Dark text on light background for optimal readability */
 }
 
 /* Links within the table */
 .section-table a {
-  color: #0c5baf; /* Blue for links, easily distinguishable from text */
-  text-decoration: underline; /* Ensures links are recognizable */
+  color: #0c5baf;
+  /* Blue for links, easily distinguishable from text */
+  text-decoration: underline;
+  /* Ensures links are recognizable */
 }
 
-.section-table a:hover, .section-table a:focus {
-  color: #0056b3; /* Darker blue for hover/focus states */
-  text-decoration: none; /* Optional: Remove underline on hover */
+.section-table a:hover,
+.section-table a:focus {
+  color: #0056b3;
+  /* Darker blue for hover/focus states */
+  text-decoration: none;
+  /* Optional: Remove underline on hover */
 }
 
 /* Ensure table is responsive for small screens */
 @media (max-width: 768px) {
   .section-table {
-    font-size: 0.875rem; /* Slightly smaller text for smaller screens */
+    font-size: 0.875rem;
+    /* Slightly smaller text for smaller screens */
   }
 
   .section-table td {
-    padding: 0.5rem; /* Reduce padding for smaller devices */
+    padding: 0.5rem;
+    /* Reduce padding for smaller devices */
   }
 
-  .section-table h2, .section-table h3 {
-    font-size: 1.25rem; /* Adjust heading size for smaller screens */
+  .section-table h2,
+  .section-table h3 {
+    font-size: 1.25rem;
+    /* Adjust heading size for smaller screens */
   }
 }
 
 /* Additional styling for visually impaired users (WCAG AA/AAA) */
 .section-table td {
-  background-color: #FFFFFF; /* Ensure a consistent white background */
+  background-color: #FFFFFF;
+  /* Ensure a consistent white background */
 }
 
 .section-table th {
-  font-weight: bold; /* Highlight headers if applicable */
-  text-align: left; /* Align for better readability */
+  font-weight: bold;
+  /* Highlight headers if applicable */
+  text-align: left;
+  /* Align for better readability */
 }
 
 
@@ -169,7 +216,8 @@ button {
   background-color: white;
   margin: 10% auto;
   padding: 20px;
-  padding-top: 50px; /* Add padding to prevent overlap */
+  padding-top: 50px;
+  /* Add padding to prevent overlap */
   width: 80%;
   max-width: 500px;
   border-radius: 8px;
@@ -324,9 +372,54 @@ img.img-fluid {
 
 /* Class to be added temporarily when scrolling to a section */
 .scroll-padding-first {
-  padding-top: 6rem;  /* Adjust this value according to the navbar height */
+  padding-top: 6rem;
+  /* Adjust this value according to the navbar height */
 }
 
 .scroll-padding {
-  padding-top: 8rem;  /* Adjust this value according to the navbar height */
+  padding-top: 8rem;
+  /* Adjust this value according to the navbar height */
+}
+
+/* Error summary and individual error messages */
+.errors {
+  color: red;
+  display: none;
+  /* Hide errors summary block initially */
+  list-style: none;
+  border: 2px solid #FF0000;
+  /* Red border for the error box */
+  padding: 10px;
+  /* Add padding inside the box */
+  background-color: #F8D7DA;
+  /* Light red background for the error box */
+  margin-bottom: 20px;
+  border-radius: 5px;
+  /* Rounded corners for the box */
+}
+
+.error {
+  color: red;
+  display: none;
+  /* Hide individual error messages initially */
+}
+
+.error:visible {
+  display: inline;
+}
+
+/* Display the error summary when there are errors */
+.errors.show {
+  display: block;
+}
+
+.error-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Success message styling (green color for thank you) */
+#form-response p {
+  color: green;
+  font-weight: bold;
 }

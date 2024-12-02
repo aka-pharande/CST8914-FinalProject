@@ -143,7 +143,7 @@ function toggleEventDetails() {
   }
 }
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
   // Add padding to the first section when the page is loaded
   const firstSection = document.querySelector('section');
   if (firstSection) {
@@ -189,3 +189,108 @@ document
 
     document.getElementById("form-response").innerHTML = responseMessage;
   });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('schedule-form');
+  const errorSummary = document.getElementById('errorSummary');
+  const formResponse = document.getElementById('form-response'); // Where we'll show the success message
+  const errorFieldset = document.querySelector('.errors'); // Get the error fieldset
+
+  // Function to validate each form field
+  function validateField(id, validationFn) {
+    const field = document.getElementById(id);
+    const errorElement = document.getElementById(id + 'Error');
+    const isValid = validationFn(field);
+
+    if (!isValid) {
+      errorElement.style.display = 'inline'; // Show error
+      return false;
+    } else {
+      errorElement.style.display = 'none'; // Hide error if valid
+      return true;
+    }
+  }
+
+  // Function to show error summary with links
+  function updateErrorSummary() {
+    const errorMessages = [];
+
+    // Check for visible error messages by manually checking the display property
+    document.querySelectorAll('.error').forEach(error => {
+      if (error.style.display === 'inline') {
+        const fieldId = error.id.replace('Error', '');
+        const message = error.innerText;
+        errorMessages.push({ fieldId, message });
+      }
+    });
+
+    // Clear existing error summary
+    errorSummary.innerHTML = '';
+
+    if (errorMessages.length > 0) {
+      errorMessages.forEach(error => {
+        const errorLink = document.createElement('a');
+        errorLink.href = `#${error.fieldId}`;
+        errorLink.textContent = error.message;
+        errorLink.classList.add('error-link');
+        errorLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById(error.fieldId).focus();
+        });
+
+        const listItem = document.createElement('li');
+        listItem.appendChild(errorLink);
+        errorSummary.appendChild(listItem);
+      });
+
+      // Show the error summary fieldset and focus it
+      errorFieldset.style.display = 'block';  // Make the error fieldset visible
+      errorSummary.classList.add('show');
+      errorFieldset.focus();  // Set focus to the error fieldset for keyboard navigation
+
+      // Scroll the error fieldset into view with smooth scroll
+      errorFieldset.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      return false; // Return false if there are errors
+    } else {
+      errorFieldset.style.display = 'none';  // Hide the error fieldset if no errors
+      errorSummary.classList.remove('show');
+      return true; // Return true if no errors
+    }
+  }
+
+  // Submit handler
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();  // Prevent the default form submission
+
+    let isValid = true;
+
+    // Validate email (required)
+    isValid = validateField('email', (field) => field.value.trim() !== '') && isValid;
+
+    // Validate phone number (only if provided)
+    isValid = validateField('phone-number', (field) => field.value === '' || /^\d{3}-\d{3}-\d{4}$/.test(field.value)) && isValid;
+
+    // Validate business name (optional)
+    isValid = validateField('business-name', (field) => field.value.trim() !== '') && isValid; // Business name is now required
+
+    // Show error summary and prevent submission if there are validation issues
+    if (!updateErrorSummary() || !isValid) {
+      return;  // Prevent form submission if there are errors
+    }
+
+    // If all validations pass, show a success message
+    formResponse.innerHTML = '<p style="color: green; font-weight: bold;">Thank you for scheduling a call. We will get back to you shortly!</p>';
+
+    // Add scrollIntoView to the form success message
+    formResponse.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Set focus to the "Thank You" message for users who rely on screen readers or keyboard navigation
+    formResponse.focus();
+
+    // Hide error summary and reset form after success
+    errorFieldset.style.display = 'none';  // Hide the error fieldset after successful submission
+    form.reset(); // Reset the form after successful submission
+  });
+});
+

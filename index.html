@@ -22,7 +22,7 @@
   <header>
     <div class="navbar navbar-expand-md navbar-dark fixed-top">
       <a class="navbar-brand" href="https://www.google.ca/">
-        <img src="images/empowerabilitylabslogo.png" alt="Empower Ability Labs Logo" height="80"  class="logo" >
+        <img src="images/empowerabilitylabslogo.png" alt="Empower Ability Labs Logo" height="80" class="logo">
       </a>
       <nav class="navbar navbar-expand-md navbar-dark" aria-label="Main Navigation">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -39,7 +39,7 @@
       </nav>
     </div>
   </header>
-  
+
   <main id="main-content" class="container" role="main">
     <section id="home">
       <h1>Welcome to Empower Ability Labs!</h1>
@@ -51,22 +51,26 @@
       </p>
     </section>
 
-      <button id="openModalBtn">Meet the Empower Community</button> <!-- Updated button text -->
+    <button id="openModalBtn">Meet the Empower Community</button> <!-- Updated button text -->
 
-      <!-- Modal Structure -->
-      <div id="lightboxModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
-        <div class="modal-content" role="document" tabindex="0">
-            <button id="closeModalBtn" class="close" aria-label="Close the modal. Press Enter or Space to close the dialog">×</button>
-            <h2 id="modalTitle">Community Steering Committee</h2>
-            <p id="modalDesc">We get an aha! moment from product managers who try our services for the first time. We offered many lab days, workshops, and usability testing services to many companies and organizations including:</p>
-            <ul>
-                <li>McGill University</li>
-                <li>Walmart.ca</li>
-                <li>Apple.ca</li>
-                <li>Google.ca</li>
-                <li>Government of Canada</li>
-            </ul>
-        </div>
+    <!-- Modal Structure -->
+    <div id="lightboxModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modalTitle"
+      aria-describedby="modalDesc">
+      <div class="modal-content" role="document" tabindex="0">
+        <button id="closeModalBtn" class="close"
+          aria-label="Close the modal. Press Enter or Space to close the dialog">×</button>
+        <h2 id="modalTitle">Community Steering Committee</h2>
+        <p id="modalDesc">We get an aha! moment from product managers who try our services for the first time. We
+          offered many lab days, workshops, and usability testing services to many companies and organizations
+          including:</p>
+        <ul>
+          <li>McGill University</li>
+          <li>Walmart.ca</li>
+          <li>Apple.ca</li>
+          <li>Google.ca</li>
+          <li>Government of Canada</li>
+        </ul>
+      </div>
     </div>
     <table class="section-table">
       <tr>
@@ -100,12 +104,6 @@
       </tr>
     </table>
   </main>
-
-  <script src="main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
-</body>
 
 
   <!-- Talwinder's section -->
@@ -149,43 +147,50 @@
       team!</p>
     <img src="images/scheduleacall.png" alt="Schedule a Call" class="img-fluid">
 
+    <!-- Error summary -->
+    <fieldset class="errors" aria-live="assertive" tabindex="-1">
+      <legend>Errors</legend>
+      <ul id="errorSummary"></ul>
+    </fieldset>
+
     <!-- Response message (Thank you or Error) -->
     <div id="form-response" class="mt-3"></div>
 
+    <!-- Form -->
     <form id="schedule-form" aria-labelledby="schedule-form">
       <div class="form-group">
         <label for="business-name">Business Name</label>
         <input type="text" class="form-control" id="business-name" aria-describedby="business-name-help"
-          placeholder="Enter your business name" required="required" aria-required="true">
-        <small id="business-name-help" class="form-text text-muted">Please enter your business name.</small>
+          placeholder="Enter your business name" aria-required="true" />
+        <span class="error" id="business-nameError">Business Name is required.</span>
       </div>
 
       <div class="form-group">
         <label for="phone-number">Phone Number</label>
-        <input type="tel" class="form-control" id="phone-number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          placeholder="613-123-1234" required="required" aria-required="true" aria-describedby="phone-help">
-        <small id="phone-help" class="form-text text-muted">Enter your phone number in the format 613-123-1234.</small>
+        <input type="tel" class="form-control" id="phone-number" placeholder="613-123-1234"
+          aria-describedby="phone-help" />
+        <span class="error" id="phone-numberError">Phone number must be in the format 613-123-1234.</span>
       </div>
 
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="example@example.com" required="required"
-          aria-required="true" aria-describedby="email-help">
-        <small id="email-help" class="form-text text-muted">Please provide your email address.</small>
+        <input type="email" class="form-control" id="email" placeholder="example@example.com" aria-required="true"
+          aria-describedby="email-help" />
+        <span class="error" id="emailError">Email is required.</span>
       </div>
 
       <fieldset class="form-group">
         <legend>What would you like to talk about?</legend>
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="awareness">
+          <input type="checkbox" class="form-check-input" id="awareness" />
           <label class="form-check-label" for="awareness">Awareness lab days and workshops</label>
         </div>
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="speaker" onchange="toggleEventDetails()">
+          <input type="checkbox" class="form-check-input" id="speaker" onchange="toggleEventDetails()" />
           <label class="form-check-label" for="speaker">Invite a speaker with disabilities to your event</label>
         </div>
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="usability-testing">
+          <input type="checkbox" class="form-check-input" id="usability-testing" />
           <label class="form-check-label" for="usability-testing">Usability testing</label>
         </div>
       </fieldset>
@@ -193,6 +198,7 @@
       <div class="form-group" id="event-details-container" style="display:none;">
         <label for="event-details">Please tell us about your event</label>
         <textarea class="form-control" id="event-details" rows="3" placeholder="Describe your event"></textarea>
+        <span class="error" id="event-detailsError">Please describe your event if you are inviting a speaker.</span>
       </div>
 
 
@@ -209,6 +215,7 @@
       <button type="submit" class="btn btn-primary">Schedule a Call</button>
     </form>
   </section>
+
 
   <footer class="container">
     <p>&copy;Empower Ability Labs Inc 2023. All rights reserved.</p>
