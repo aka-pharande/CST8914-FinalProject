@@ -1,6 +1,19 @@
 // JavaScript for form validation and interaction
 
 // Vrinda's Section
+document.addEventListener('focusin', (event) => {
+  const element = event.target;
+  if (element.classList) {
+    element.classList.add('focus-visible');
+  }
+});
+
+document.addEventListener('focusout', (event) => {
+  const element = event.target;
+  if (element.classList) {
+    element.classList.remove('focus-visible');
+  }
+});
 
 // Talwinder's Section
 // Modal and button elements

@@ -1,6 +1,68 @@
 /* Custom styles for Empower Ability Labs */
 
 /* Vrinda's Section */
+/* Navbar Styling */
+.navbar {
+  background-color: #6c7277; /* Dark blue for the navbar background */
+  border-bottom: 3px solid #6c7277; /* Adds a bottom border for visual separation */
+}
+
+.navbar .navbar-brand {
+  color: #FFFFFF; /* White text for the brand name/logo */
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase; /* Makes the brand name more prominent */
+}
+
+.navbar .navbar-brand:hover, 
+.navbar .navbar-brand:focus {
+  color: #FFBF47; /* Highlighted yellow-orange on hover/focus */
+  text-decoration: none; /* Removes underline */
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #FFFFFF; /* White text for navigation links */
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase; /* Makes the links stand out */
+  transition: color 0.3s ease; /* Smooth transition for color changes */
+}
+
+.navbar-nav .nav-item .nav-link:hover, 
+.navbar-nav .nav-item .nav-link:focus {
+  color: #FFBF47; /* Yellow-orange highlight for hover and focus */
+  text-decoration: none; /* Ensures no underline appears */
+}
+
+.navbar-toggler {
+  border-color: #FFFFFF; /* White border for the toggler button */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28155, 155, 155, 0.9%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  /* Custom light gray icon */
+}
+
+.logo {
+  padding: 2px; /* Adjust the value as needed */
+}
+
+/* Accessibility: Focus styles for the navbar */
+.navbar .nav-link:focus {
+  outline: 2px dashed #FFBF47; /* Yellow-orange dashed outline */
+  outline-offset: 4px; /* Adds space between element and outline */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-nav .nav-item .nav-link {
+    font-size: 0.9rem; /* Slightly smaller font for smaller screens */
+    padding: 0.4rem 0.8rem; /* Adjusted padding for compact layout */
+  }
+}
+
+
 main {
   padding-top: 6rem;
   padding-left: 2em;
@@ -12,17 +74,49 @@ main {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 2rem;
+  border-spacing: 0; /* Ensures table elements align properly */
+  background-color: #FFFFFF; /* White background for maximum readability */
+  color: #1C1C1E; /* Dark gray text for excellent contrast */
 }
 
 .section-table td {
-  border: 2px solid #333;
+  border: 2px solid #4A4A4A; /* Strong gray border for good visibility */
   padding: 1rem;
   vertical-align: top;
+  text-align: left; /* Aligns content for better readability */
 }
 
 .section-table h2 {
   margin-top: 0;
+  font-size: 1.5rem; /* Adjust for better readability */
+  line-height: 1.5; /* Improves text legibility */
+  color: #000000; /* Black for maximum contrast */
 }
+
+/* Add focus styles for keyboard navigation */
+.section-table td:focus, .section-table h2:focus {
+  outline: 3px dashed #FFBF47; /* High-contrast yellow-orange focus indicator */
+  outline-offset: 4px; /* Adds space between element and outline */
+}
+
+/* Enhance contrast for text */
+.section-table {
+  background-color: #F8F9FA; /* Light gray background for subtle contrast */
+  color: #212529; /* Black text for maximum readability */
+}
+
+/* Ensure responsiveness for small screens */
+@media (max-width: 768px) {
+  .section-table {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+  
+  .section-table td {
+    padding: 0.5rem; /* Reduce padding on smaller devices */
+  }
+}
+
+
 
 /* Talwinder's Section */
 
