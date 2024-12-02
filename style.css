@@ -423,3 +423,9 @@ img.img-fluid {
   color: green;
   font-weight: bold;
 }
+
+/* Style for the required asterisk */
+.required {
+  color: red; /* Red color for the asterisk */
+  font-weight: bold; /* Make it bold */
+}
