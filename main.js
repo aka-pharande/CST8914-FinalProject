@@ -143,6 +143,33 @@ function toggleEventDetails() {
   }
 }
 
+window.addEventListener('load', function() {
+  // Add padding to the first section when the page is loaded
+  const firstSection = document.querySelector('section');
+  if (firstSection) {
+    firstSection.classList.add('scroll-padding-first');
+  }
+});
+
+// Function to handle navbar link click and scroll behavior
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+  link.addEventListener('click', function (event) {
+    // Remove padding from all sections
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.remove('scroll-padding');
+    });
+
+    // Add padding to the section being navigated to
+    const target = document.querySelector(this.getAttribute('href'));
+    target.classList.add('scroll-padding');
+
+    // Optionally, scroll to the target element with smooth behavior
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }, 200); // Wait for the class to be added before scrolling
+  });
+});
+
 // Form submission handler
 document
   .getElementById("schedule-form")
