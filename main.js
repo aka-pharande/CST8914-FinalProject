@@ -170,6 +170,24 @@ document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
   });
 });
 
+// JavaScript for handling hamburger toggle functionality
+document.addEventListener("DOMContentLoaded", function () {
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navbarMenu = document.querySelector('#navbarNav');
+
+  // Toggle navbar on hamburger click
+  navbarToggler.addEventListener('click', function () {
+    const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true'; // Check current state
+
+    // Toggle the 'aria-expanded' attribute
+    navbarToggler.setAttribute('aria-expanded', !isExpanded);
+
+    // Toggle the collapse class to show or hide the menu
+    navbarMenu.classList.toggle('collapse');
+  });
+});
+
+
 // Form submission handler
 document
   .getElementById("schedule-form")
