@@ -116,7 +116,7 @@ main {
 
 /* Links within the table */
 .section-table a {
-  color: #007BFF; /* Blue for links, easily distinguishable from text */
+  color: #0c5baf; /* Blue for links, easily distinguishable from text */
   text-decoration: underline; /* Ensures links are recognizable */
 }
 
