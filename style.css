@@ -284,11 +284,35 @@ img.img-fluid {
   height: auto;
 }
 
-/* Form styles */
 .form-group {
   margin-bottom: 1.5rem;
 }
 
+/* Adjust form group layout */
+.form-group .inline {
+  display: flex;
+  align-items: center; /* Vertically align label and input */
+}
+
+/* Style for the label to ensure proper spacing */
+.form-group .inline label {
+  flex: 1; /* Allows the label to take up available space */
+  margin-right: 1rem; /* Space between the label and the input */
+  white-space: nowrap; /* Prevents label from wrapping */
+}
+
+/* Style for the input field */
+.form-group .inline input, .form-group .inline textarea {
+  flex: 2; /* Allows the input field to take more space */
+  width: 100%; /* Makes sure input field takes the full width */
+}
+
+/* Form styles */
+.topics {
+  border: 2px solid #ced4da;
+  padding: 10px;
+
+}
 
 /* Make the form responsive */
 @media (max-width: 768px) {

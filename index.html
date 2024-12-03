@@ -159,30 +159,25 @@
 
     <!-- Form -->
     <form id="schedule-form" aria-labelledby="schedule-form">
-      <div class="form-group">
-        <label for="business-name">Business Name <span class="required">*</span></label>
-        <input type="text" class="form-control" id="business-name"
-          placeholder="Enter your business name" aria-required="true">
-        <span class="error" id="business-nameError">Business Name is required.</span>
-        </div>
+      <div class="form-group inline">
+        <label for="business-name">Business Name</label>
+        <input type="text" class="form-control" id="business-name" placeholder="Enter your business name">
+        <!-- <span class="error" id="business-nameError">Business Name is required.</span>   -->
+      </div>
 
-      <div class="form-group">
+      <div class="form-group inline">
         <label for="phone-number">Phone Number</label>
-        <input type="tel" class="form-control" id="phone-number" placeholder="613-123-1234"
-          aria-describedby="phone-help" />
-        <span class="error" id="phone-numberError">Phone number must be in the format 613-123-1234.</span>
-        <small id="phone-help" class="form-text text-muted">Please provide your phone number.</small>
+        <input type="tel" class="form-control" id="phone-number" placeholder="613-123-1234"/>
+        <!-- <span class="error" id="phone-numberError">Phone number must be in the format 613-123-1234.</span> -->
       </div>
 
-      <div class="form-group">
-        <label for="email">Email <span class="required">*</span></label>
-        <input type="email" class="form-control" id="email" placeholder="example@example.com" aria-required="true"
-          aria-describedby="email-help">
-        <span class="error" id="emailError">Email is required.</span>
-        <small id="email-help" class="form-text text-muted">Please provide your email address.</small>
+      <div class="form-group inline">
+        <label for="email">Email <span class="required">(required)</span></label>
+        <input type="email" class="form-control" id="email" placeholder="example@example.com" aria-required="true">
+        <!-- <span class="error" id="emailError">Email is required.</span> -->
       </div>
 
-      <fieldset class="form-group">
+      <fieldset class="form-group topics">
         <legend>What would you like to talk about?</legend>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="awareness" />

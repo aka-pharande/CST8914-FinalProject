@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
     isValid = validateField('phone-number', (field) => field.value === '' || /^\d{3}-\d{3}-\d{4}$/.test(field.value)) && isValid;
 
     // Validate business name (optional)
-    isValid = validateField('business-name', (field) => field.value.trim() !== '') && isValid; // Business name is now required
+    isValid = validateField('business-name', (field) => field.value.trim() === '' || field.value.trim() !== '') && isValid;
 
     // Show error summary and prevent submission if there are validation issues
     if (!updateErrorSummary() || !isValid) {
