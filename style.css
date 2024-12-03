@@ -201,6 +201,11 @@ button {
   margin-bottom: 1em;
 }
 
+/* Adjusting the focus of the modal */
+#openModalBtn:focus {
+  outline: 3px solid #007BFF;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -239,7 +244,7 @@ button {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: blue;
   text-decoration: none;
   cursor: pointer;
 }
