@@ -323,3 +323,46 @@ document
     });
   });
   
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const checkbox = document.getElementById('switch-toggle');
+    const label = document.querySelector('label[for="switch-toggle"]');
+    
+    // Function to toggle the switch state visually and update aria-checked attribute
+    function toggleSwitch() {
+      const isChecked = checkbox.checked;
+      checkbox.checked = !isChecked;  // Toggle the checkbox state
+      updateSwitchState();  // Update visual state
+    }
+  
+    // Function to update the switch state visually
+    function updateSwitchState() {
+      const isChecked = checkbox.checked;
+      checkbox.setAttribute('aria-checked', isChecked);
+      const knobs = checkbox.closest('.button-cover').querySelector('.knobs');
+      const layer = checkbox.closest('.button-cover').querySelector('.layer');
+      
+      if (isChecked) {
+        layer.style.backgroundColor = '#4CAF50';  // Green for active state
+      } else {
+        layer.style.backgroundColor = '#ccc';    // Gray for inactive state
+      }
+    }
+  
+    // Event listener for keydown to handle Enter and Space keys
+    label.addEventListener('keydown', function (e) {
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault(); // Prevent scrolling when Space is pressed
+        toggleSwitch();  // Toggle the switch on Space or Enter
+      }
+    });
+  
+    // Event listener for checkbox change (when clicked)
+    checkbox.addEventListener('change', function () {
+      updateSwitchState();
+    });
+  
+    // Initialize the switch state when page loads
+    updateSwitchState();
+  });
+  

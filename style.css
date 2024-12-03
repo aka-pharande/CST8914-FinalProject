@@ -349,14 +349,14 @@ img.img-fluid {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #ebf7fc;
+  background-color: #fcebeb;
   transition: 0.3s ease all;
   z-index: 2;
   border-radius: 100px;
 }
 
 .knobs:before {
-  content: "YES";
+  content: "No";
   position: absolute;
   top: 4px;
   left: 4px;
@@ -366,7 +366,7 @@ img.img-fluid {
   text-align: center;
   line-height: 1;
   padding: 6px 10px;
-  background-color: #03a9f4;
+  background-color: #f44336;
   border-radius: 50%;
   transition: 0.3s ease all;
 }
@@ -378,13 +378,13 @@ img.img-fluid {
 }
 
 .checkbox:checked + .knobs:before {
-  content: "NO";
+  content: "Yes";
   left: 42px; /* Move the knob to the "NO" side */
-  background-color: #f44336; /* Red color for "NO" */
+  background-color: #03a9f4; /* Red color for "NO" */
 }
 
 .checkbox:checked + .knobs {
-  background-color: #fcebeb;
+  background-color: #ebf7fc;
 }
 
 .label {
