@@ -222,7 +222,7 @@ button {
   margin: 10% auto;
   padding: 20px;
   padding-top: 50px;
-  /* Add padding to prevent overlap */
+  /* Added padding to prevent overlap */
   width: 80%;
   max-width: 500px;
   border-radius: 8px;
