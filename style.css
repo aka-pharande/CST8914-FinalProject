@@ -383,7 +383,7 @@ img.img-fluid {
 
 /* Error summary and individual error messages */
 .errors {
-  color: red;
+  color: rgb(162, 0, 0);
   display: none;
   /* Hide errors summary block initially */
   list-style: none;
@@ -391,7 +391,7 @@ img.img-fluid {
   /* Red border for the error box */
   padding: 10px;
   /* Add padding inside the box */
-  background-color: #F8D7DA;
+  background-color: #f8eced;
   /* Light red background for the error box */
   margin-bottom: 20px;
   border-radius: 5px;
@@ -399,7 +399,7 @@ img.img-fluid {
 }
 
 .error {
-  color: red;
+  color: rgb(162, 0, 0);
   display: none;
   /* Hide individual error messages initially */
 }
@@ -426,6 +426,18 @@ img.img-fluid {
 
 /* Style for the required asterisk */
 .required {
-  color: red; /* Red color for the asterisk */
+  color: rgb(162, 0, 0); /* Red color for the asterisk */
   font-weight: bold; /* Make it bold */
+}
+
+#errorSummary a {
+  color: #0c5baf;
+  /* Blue for links, easily distinguishable from text */
+  text-decoration: underline;
+  /* Ensures links are recognizable */
+}
+
+.btn-primary {
+  background-color: #0c5baf;
+  border-color: #0c5baf;
 }
