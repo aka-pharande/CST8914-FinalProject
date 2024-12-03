@@ -188,26 +188,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Form submission handler
-document
-  .getElementById("schedule-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    let responseMessage =
-      "Thank you for scheduling a call. We will get back to you shortly.";
-
-    // Check if all required fields are filled
-    const businessName = document.getElementById("business-name").value;
-    const email = document.getElementById("email").value;
-
-    if (!businessName || !email) {
-      responseMessage = "Please fill out all required fields.";
-    }
-
-    document.getElementById("form-response").innerHTML = responseMessage;
-  });
-
   document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('schedule-form');
     const errorSummary = document.getElementById('errorSummary');
