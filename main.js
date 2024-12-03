@@ -208,107 +208,118 @@ document
     document.getElementById("form-response").innerHTML = responseMessage;
   });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('schedule-form');
-  const errorSummary = document.getElementById('errorSummary');
-  const formResponse = document.getElementById('form-response'); // Where we'll show the success message
-  const errorFieldset = document.querySelector('.errors'); // Get the error fieldset
-
-  // Function to validate each form field
-  function validateField(id, validationFn) {
-    const field = document.getElementById(id);
-    const errorElement = document.getElementById(id + 'Error');
-    const isValid = validationFn(field);
-
-    if (!isValid) {
-      errorElement.style.display = 'inline'; // Show error
-      return false;
-    } else {
-      errorElement.style.display = 'none'; // Hide error if valid
-      return true;
-    }
-  }
-
-  // Function to show error summary with links
-  function updateErrorSummary() {
-    const errorMessages = [];
-
-    // Check for visible error messages by manually checking the display property
-    document.querySelectorAll('.error').forEach(error => {
-      if (error.style.display === 'inline') {
-        const fieldId = error.id.replace('Error', '');
-        const message = error.innerText;
-        errorMessages.push({ fieldId, message });
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('schedule-form');
+    const errorSummary = document.getElementById('errorSummary');
+    const formResponse = document.getElementById('form-response'); // Where we'll show the success message
+    const errorFieldset = document.querySelector('.errors'); // Get the error fieldset
+  
+    // Function to validate each form field
+    function validateField(id, validationFn) {
+      const field = document.getElementById(id);
+      const errorElement = document.getElementById(id + 'Error');
+      const isValid = validationFn(field);
+  
+      // Initially hide all errors
+      errorElement.style.display = 'none'; // Hide the error by default
+  
+      if (!isValid) {
+        // Show error in the summary, not inline
+        return errorElement; // Return the error element for the summary
       }
-    });
-
-    // Clear existing error summary
-    errorSummary.innerHTML = '';
-
-    if (errorMessages.length > 0) {
-      errorMessages.forEach(error => {
-        const errorLink = document.createElement('a');
-        errorLink.href = `#${error.fieldId}`;
-        errorLink.textContent = error.message;
-        errorLink.classList.add('error-link');
-        errorLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          document.getElementById(error.fieldId).focus();
-        });
-
-        const listItem = document.createElement('li');
-        listItem.appendChild(errorLink);
-        errorSummary.appendChild(listItem);
+      return null; // If valid, no error
+    }
+  
+    // Function to show error summary with links
+    function updateErrorSummary() {
+      const errorMessages = [];
+  
+      // Check for errors in the form and collect messages
+      document.querySelectorAll('.error').forEach(error => {
+        if (error.style.display === 'inline') {  // Show the errors that are marked 'inline'
+          const fieldId = error.id.replace('Error', '');
+          const message = error.innerText;
+          errorMessages.push({ fieldId, message });
+        }
       });
-
-      // Show the error summary fieldset and focus it
-      errorFieldset.style.display = 'block';  // Make the error fieldset visible
-      errorSummary.classList.add('show');
-      errorFieldset.focus();  // Set focus to the error fieldset for keyboard navigation
-
-      // Scroll the error fieldset into view with smooth scroll
-      errorFieldset.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-      return false; // Return false if there are errors
-    } else {
-      errorFieldset.style.display = 'none';  // Hide the error fieldset if no errors
-      errorSummary.classList.remove('show');
-      return true; // Return true if no errors
+  
+      // Clear existing error summary
+      errorSummary.innerHTML = '';
+  
+      if (errorMessages.length > 0) {
+        errorMessages.forEach(error => {
+          const errorLink = document.createElement('a');
+          errorLink.href = `#${error.fieldId}`;
+          errorLink.textContent = error.message;
+          errorLink.classList.add('error-link');
+          errorLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById(error.fieldId).focus(); // Focus the input on click
+          });
+  
+          const listItem = document.createElement('li');
+          listItem.appendChild(errorLink);
+          errorSummary.appendChild(listItem);
+        });
+  
+        // Show the error summary fieldset and focus it
+        errorFieldset.style.display = 'block';  // Make the error fieldset visible
+        errorFieldset.focus();  // Set focus to the error fieldset for keyboard navigation
+  
+        // Scroll the error fieldset into view with smooth scroll
+        errorFieldset.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  
+        return false; // Return false if there are errors
+      } else {
+        errorFieldset.style.display = 'none';  // Hide the error fieldset if no errors
+        return true; // Return true if no errors
+      }
     }
-  }
-
-  // Submit handler
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();  // Prevent the default form submission
-
-    let isValid = true;
-
-    // Validate email (required)
-    isValid = validateField('email', (field) => field.value.trim() !== '') && isValid;
-
-    // Validate phone number (only if provided)
-    isValid = validateField('phone-number', (field) => field.value === '' || /^\d{3}-\d{3}-\d{4}$/.test(field.value)) && isValid;
-
-    // Validate business name (optional)
-    isValid = validateField('business-name', (field) => field.value.trim() === '' || field.value.trim() !== '') && isValid;
-
-    // Show error summary and prevent submission if there are validation issues
-    if (!updateErrorSummary() || !isValid) {
-      return;  // Prevent form submission if there are errors
-    }
-
-    // If all validations pass, show a success message
-    formResponse.innerHTML = '<p style="color: green; font-weight: bold;">Thank you for scheduling a call. We will get back to you shortly!</p>';
-
-    // Add scrollIntoView to the form success message
-    formResponse.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-    // Set focus to the "Thank You" message for users who rely on screen readers or keyboard navigation
-    formResponse.focus();
-
-    // Hide error summary and reset form after success
-    errorFieldset.style.display = 'none';  // Hide the error fieldset after successful submission
-    form.reset(); // Reset the form after successful submission
+  
+    // Submit handler
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();  // Prevent the default form submission
+  
+      let isValid = true;
+  
+      // Validate email (required)
+      const emailError = validateField('email', (field) => field.value.trim() !== '');
+      if (emailError) {
+        emailError.style.display = 'inline'; // Show error message in the error summary
+        isValid = false;
+      }
+  
+      // Validate phone number (only if provided)
+      const phoneError = validateField('phone-number', (field) => field.value === '' || /^\d{3}-\d{3}-\d{4}$/.test(field.value));
+      if (phoneError) {
+        phoneError.style.display = 'inline'; // Show error message in the error summary
+        isValid = false;
+      }
+  
+      // Validate business name (optional)
+      const businessNameError = validateField('business-name', (field) => field.value.trim() === '' || field.value.trim() !== '');
+      if (businessNameError) {
+        businessNameError.style.display = 'inline'; // Show error message in the error summary
+        isValid = false;
+      }
+  
+      // Show error summary and prevent submission if there are validation issues
+      if (!updateErrorSummary() || !isValid) {
+        return;  // Prevent form submission if there are errors
+      }
+  
+      // If all validations pass, show a success message
+      formResponse.innerHTML = '<p style="color: green; font-weight: bold;">Thank you for scheduling a call. We will get back to you shortly!</p>';
+  
+      // Add scrollIntoView to the form success message
+      formResponse.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  
+      // Set focus to the "Thank You" message for users who rely on screen readers or keyboard navigation
+      formResponse.focus();
+  
+      // Hide error summary and reset form after success
+      errorFieldset.style.display = 'none';  // Hide the error fieldset after successful submission
+      form.reset(); // Reset the form after successful submission
+    });
   });
-});
-
+  

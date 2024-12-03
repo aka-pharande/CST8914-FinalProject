@@ -161,20 +161,20 @@
     <form id="schedule-form" aria-labelledby="schedule-form">
       <div class="form-group inline">
         <label for="business-name">Business Name</label>
-        <input type="text" class="form-control" id="business-name" placeholder="Enter your business name">
-        <!-- <span class="error" id="business-nameError">Business Name is required.</span>   -->
+        <input type="text" class="form-control" id="business-name">
+        <span class="error" id="business-nameError">Business Name is required.</span>  
       </div>
 
       <div class="form-group inline">
-        <label for="phone-number">Phone Number</label>
-        <input type="tel" class="form-control" id="phone-number" placeholder="613-123-1234"/>
-        <!-- <span class="error" id="phone-numberError">Phone number must be in the format 613-123-1234.</span> -->
+        <label for="phone-number">Phone Number (613-123-1234)</label>
+        <input type="tel" class="form-control" id="phone-number"/>
+        <span class="error" id="phone-numberError">Phone number must be in the format 613-123-1234.</span>
       </div>
 
       <div class="form-group inline">
-        <label for="email">Email <span class="required">(required)</span></label>
-        <input type="email" class="form-control" id="email" placeholder="example@example.com" aria-required="true">
-        <!-- <span class="error" id="emailError">Email is required.</span> -->
+        <label for="email">Email (example@example.com) <span class="required">(required)</span></label>
+        <input type="email" class="form-control" id="email" aria-required="true">
+        <span class="error" id="emailError">Email is required.</span>
       </div>
 
       <fieldset class="form-group topics">
@@ -200,13 +200,19 @@
       </div>
 
 
-      <div role="switch" aria-checked="false" tabindex="0">
+      <div class="switch-container">
+        <div class="toggle-button-cover">
+          <div class="button-cover">
+            <label class="button1 r" id="button-1" for="switch-toggle">
+              <!-- Label text added for accessibility -->
+              <span class="sr-only">Toggle switch for receiving emails about updates and services</span>
+              <input type="checkbox" class="checkbox" id="switch-toggle" aria-checked="false" role="switch" aria-label="Receive emails about updates and services"/>
+              <div class="knobs"></div>
+              <div class="layer"></div>
+            </label>
+          </div>
+        </div>
         <span class="label">Receive emails about updates and services</span>
-        <span class="switch">
-          <span></span>
-        </span>
-        <span class="on" aria-hidden="true">On</span>
-        <span class="off" aria-hidden="true">Off</span>
       </div>
 
 
@@ -216,7 +222,7 @@
 
 
   <footer class="container">
-    <p>&copy;Empower Ability Labs Inc 2023. All rights reserved.</p>
+    <p>&copy; Empower Ability Labs Inc 2023. All rights reserved.</p>
   </footer>
 
   <script src="main.js"></script>

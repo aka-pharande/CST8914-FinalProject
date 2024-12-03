@@ -288,25 +288,6 @@ img.img-fluid {
   margin-bottom: 1.5rem;
 }
 
-/* Adjust form group layout */
-.form-group .inline {
-  display: flex;
-  align-items: center; /* Vertically align label and input */
-}
-
-/* Style for the label to ensure proper spacing */
-.form-group .inline label {
-  flex: 1; /* Allows the label to take up available space */
-  margin-right: 1rem; /* Space between the label and the input */
-  white-space: nowrap; /* Prevents label from wrapping */
-}
-
-/* Style for the input field */
-.form-group .inline input, .form-group .inline textarea {
-  flex: 2; /* Allows the input field to take more space */
-  width: 100%; /* Makes sure input field takes the full width */
-}
-
 /* Form styles */
 .topics {
   border: 2px solid #ced4da;
@@ -321,77 +302,101 @@ img.img-fluid {
   }
 }
 
-
-/* Switch styling */
-[role="switch"] {
-  margin: 2px;
-  padding: 4px 4px 8px 8px;
-  border: 0 solid #005a9c;
-  border-radius: 5px;
-  width: 15em;
-  user-select: none;
+/* Ensure switch and label are on the same line */
+.switch-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between switch and label */
+  margin-bottom: 20px; /* Space between switch and button below */
 }
 
-[role="switch"] .label {
-  display: inline-block;
-  width: 8em;
+.toggle-button-cover {
+  display: flex;
+  align-items: center;
 }
 
-[role="switch"] .switch {
+.button-cover {
+  height: 50px;
+}
+
+.button1 {
   position: relative;
-  display: inline-block;
-  top: 6px;
-  border: 2px solid black;
-  border-radius: 12px;
-  height: 20px;
-  width: 40px;
-}
-
-[role="switch"] .switch span {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  display: inline-block;
-  border: 2px solid black;
-  border-radius: 8px;
-  height: 12px;
-  width: 12px;
-  background: black;
-}
-
-[role="switch"][aria-checked="true"] .switch span {
-  left: 21px;
-  background: green;
-  border-color: green;
-}
-
-[role="switch"] .on {
-  display: none;
-}
-
-[role="switch"] .off {
-  display: inline;
-}
-
-[role="switch"][aria-checked="true"] .on {
-  display: inline;
-}
-
-[role="switch"][aria-checked="true"] .off {
-  display: none;
-}
-
-[role="switch"]:focus,
-[role="switch"]:hover {
-  padding: 2px 2px 6px 6px;
-  border-width: 2px;
-  outline: none;
-  background-color: #def;
+  top: 50%;
+  width: 74px;
+  height: 36px;
+  margin: -20px auto 0 auto;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
 }
 
-[role="switch"]:focus span.switch {
-  background-color: white;
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ebf7fc;
+  transition: 0.3s ease all;
+  z-index: 2;
+  border-radius: 100px;
+}
+
+.knobs:before {
+  content: "YES";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 6px 10px;
+  background-color: #03a9f4;
+  border-radius: 50%;
+  transition: 0.3s ease all;
+}
+
+.layer {
+  width: 100%;
+  background-color: #fcebeb;
+  transition: 0.3s ease all;
+}
+
+.checkbox:checked + .knobs:before {
+  content: "NO";
+  left: 42px; /* Move the knob to the "NO" side */
+  background-color: #f44336; /* Red color for "NO" */
+}
+
+.checkbox:checked + .knobs {
+  background-color: #fcebeb;
+}
+
+.label {
+  font-size: 1rem;
+  color: #333;
+  display: inline-block;
+  margin-left: 10px; /* Adds space between switch and label text */
+}
+
+.checkbox:focus + .knobs:before {
+  outline: 2px solid #FFBF47;
+  outline-offset: 2px;
 }
 
 /* Class to be added temporarily when scrolling to a section */
