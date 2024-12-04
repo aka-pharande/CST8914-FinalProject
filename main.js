@@ -1,6 +1,5 @@
 // JavaScript for form validation and interaction
 
-// Vrinda's Section
 document.addEventListener("focusin", (event) => {
   const element = event.target;
   if (element.classList) {
@@ -15,7 +14,6 @@ document.addEventListener("focusout", (event) => {
   }
 });
 
-// Talwinder's Section
 const modal = document.getElementById("lightboxModal");
 const openModalBtn = document.getElementById("openModalBtn");
 const closeModalBtn = document.getElementById("closeModalBtn");
@@ -86,8 +84,6 @@ function trapFocus(modal) {
     }
   });
 }
-
-// Aakanksha's Section
 
 ("use strict");
 
