@@ -398,7 +398,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Load the initial section based on the URL hash
+  // Set initial focus to the navbar on page load
+  const firstNavLink = document.querySelector(".skip-link");
+  if (firstNavLink) {
+    firstNavLink.focus();
+  }
+
+  // Optionally, scroll to the initial section based on the URL hash
   const initialSectionId = window.location.hash.substring(1) || "home";
   const initialSection = document.getElementById(initialSectionId);
   if (initialSection) {
@@ -406,8 +412,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const heading = initialSection.querySelector("h1, h2");
     if (heading) {
       heading.setAttribute("tabindex", "-1");
-      heading.focus();
-      document.title = `${heading.textContent} - Empower Ability Labs`;
     }
   }
 });
