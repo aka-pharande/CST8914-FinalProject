@@ -348,42 +348,66 @@ document.addEventListener("DOMContentLoaded", function () {
   updateSwitchState();
 });
 
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', event => {
+document.addEventListener("DOMContentLoaded", function () {
+  // Get all navigation links
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  // Function to handle navigation and update history
+  function navigateToSection(event, updateHistory = true) {
     event.preventDefault();
-    const sectionId = event.target.getAttribute('href').substring(1);
+    const sectionId = event.target.getAttribute("href").substring(1);
     const section = document.getElementById(sectionId);
 
-    // Scroll to the section
-    section.scrollIntoView({ behavior: 'smooth' });
+    if (section) {
+      // Scroll to the section
+      section.scrollIntoView({ behavior: "smooth" });
 
-    // Shift focus to the section's heading
-    const heading = section.querySelector('h1, h2');
-    if (heading) {
-      heading.setAttribute('tabindex', '-1');
-      heading.focus();
+      // Focus on the section heading for accessibility
+      const heading = section.querySelector("h1, h2");
+      if (heading) {
+        heading.setAttribute("tabindex", "-1");
+        heading.focus();
+        // Update the document title
+        document.title = `${heading.textContent} - Empower Ability Labs`;
+      }
+
+      // Push to history if required
+      if (updateHistory) {
+        history.pushState({ section: sectionId }, document.title, `#${sectionId}`);
+      }
+    }
+  }
+
+  // Attach click events to navigation links
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => navigateToSection(event));
+  });
+
+  // Handle back/forward button navigation
+  window.addEventListener("popstate", (event) => {
+    const sectionId = event.state?.section || "home";
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      const heading = section.querySelector("h1, h2");
+      if (heading) {
+        heading.setAttribute("tabindex", "-1");
+        heading.focus();
+        document.title = `${heading.textContent} - Empower Ability Labs`;
+      }
     }
   });
-});
 
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', event => {
-    event.preventDefault();
-    const sectionId = event.target.getAttribute('href').substring(1);
-    const section = document.getElementById(sectionId);
-
-    // Update the page title
-    const heading = section.querySelector('h1, h2');
+  // Load the initial section based on the URL hash
+  const initialSectionId = window.location.hash.substring(1) || "home";
+  const initialSection = document.getElementById(initialSectionId);
+  if (initialSection) {
+    initialSection.scrollIntoView({ behavior: "smooth" });
+    const heading = initialSection.querySelector("h1, h2");
     if (heading) {
+      heading.setAttribute("tabindex", "-1");
+      heading.focus();
       document.title = `${heading.textContent} - Empower Ability Labs`;
     }
-
-    // Scroll and focus management
-    section.scrollIntoView({ behavior: 'smooth' });
-    if (heading) {
-      heading.setAttribute('tabindex', '-1');
-      heading.focus();
-    }
-  });
+  }
 });
-
