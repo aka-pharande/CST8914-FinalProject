@@ -351,3 +351,43 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize the switch state when page loads
   updateSwitchState();
 });
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    const sectionId = event.target.getAttribute('href').substring(1);
+    const section = document.getElementById(sectionId);
+
+    // Scroll to the section
+    section.scrollIntoView({ behavior: 'smooth' });
+
+    // Shift focus to the section's heading
+    const heading = section.querySelector('h1, h2');
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus();
+    }
+  });
+});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault();
+    const sectionId = event.target.getAttribute('href').substring(1);
+    const section = document.getElementById(sectionId);
+
+    // Update the page title
+    const heading = section.querySelector('h1, h2');
+    if (heading) {
+      document.title = `${heading.textContent} - Empower Ability Labs`;
+    }
+
+    // Scroll and focus management
+    section.scrollIntoView({ behavior: 'smooth' });
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus();
+    }
+  });
+});
+
